@@ -1,24 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 65" width="220" height="65">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70" width="240" height="70">
   <defs>
     <!-- Fonts -->
     <style type="text/css">
       @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;display=swap');
       
-      .badge-bg {
+      .bg {
         fill: #090d16;
         stroke: #1f2937;
         stroke-width: 1.5;
         transition: all 0.3s ease;
       }
-      .badge-border {
+      
+      .border-glow {
         fill: none;
         stroke: #ff007f;
         stroke-width: 2;
-        stroke-dasharray: 550;
-        stroke-dashoffset: 550;
+        stroke-dasharray: 620;
+        stroke-dashoffset: 620;
         transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        filter: drop-shadow(0 0 2px rgba(255, 0, 127, 0.4));
       }
+
+      /* Envelope Positioning */
+      .env-group {
+        transform: translate(25, 20);
+      }
+
+      .env-back {
+        fill: #1f2937;
+        stroke: #4b5563;
+        stroke-width: 1.5;
+        transition: all 0.3s ease;
+      }
+
+      /* Letter card inside */
+      .env-letter {
+        fill: #00f3ff;
+        transform: translateY(0px);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), fill 0.3s ease;
+      }
+
+      .env-front {
+        fill: #0d121f;
+        stroke: #4b5563;
+        stroke-width: 1.5;
+        transition: all 0.3s ease;
+      }
+
+      /* Envelope flap */
+      .env-flap {
+        fill: #1a2333;
+        stroke: #4b5563;
+        stroke-width: 1.5;
+        transform-origin: 20px 8px;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), fill 0.3s ease, stroke 0.3s ease;
+      }
+
       .text {
         fill: #9ca3af;
         font-family: 'Share Tech Mono', monospace;
@@ -27,18 +63,14 @@
         letter-spacing: 2px;
         transition: all 0.3s ease;
       }
-      .icon {
-        fill: #9ca3af;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-      
-      /* Hover State */
-      svg:hover .badge-bg {
+
+      /* Hover States */
+      svg:hover .bg {
         fill: #190f18;
         stroke: #ff007f;
-        filter: drop-shadow(0 0 4px rgba(255, 0, 127, 0.15));
+        filter: drop-shadow(0 0 5px rgba(255, 0, 127, 0.15));
       }
-      svg:hover .badge-border {
+      svg:hover .border-glow {
         stroke-dashoffset: 0;
         filter: drop-shadow(0 0 6px #ff007f);
       }
@@ -46,26 +78,49 @@
         fill: #ff007f;
         filter: drop-shadow(0 0 2px rgba(255, 0, 127, 0.5));
       }
-      svg:hover .icon {
+      
+      /* Interactive envelope opening on hover */
+      svg:hover .env-flap {
+        transform: scaleY(-1);
         fill: #ff007f;
-        filter: drop-shadow(0 0 5px #ff007f);
-        transform: scale(1.15) translate(-1.5px, -1.5px);
-        transform-origin: 37px 32px;
+        stroke: #ff007f;
+      }
+      svg:hover .env-letter {
+        transform: translateY(-13px);
+        fill: #ff007f;
+        filter: drop-shadow(0 0 4px #ff007f);
+      }
+      svg:hover .env-back, svg:hover .env-front {
+        stroke: #ff007f;
       }
     </style>
   </defs>
 
-  <!-- Background Card -->
-  <rect x="5" y="5" width="210" height="55" rx="10" class="badge-bg" />
-  
-  <!-- Glowing Animated Border on Hover -->
-  <rect x="5" y="5" width="210" height="55" rx="10" class="badge-border" />
-  
-  <!-- Gmail/Envelope Icon -->
-  <g class="icon" transform="translate(25, 20)">
-    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+  <!-- Outer card -->
+  <rect x="5" y="5" width="230" height="60" rx="10" class="bg" />
+  <rect x="5" y="5" width="230" height="60" rx="10" class="border-glow" />
+
+  <!-- Interactive Envelope Group -->
+  <g class="env-group">
+    <!-- Letter that slides up -->
+    <rect x="3" y="4" width="34" height="20" rx="2" class="env-letter" />
+    <!-- Letter details -->
+    <line x1="8" y1="9" x2="22" y2="9" stroke="#090d16" stroke-width="1.5" class="env-letter" style="transform: inherit;" />
+    <line x1="8" y1="13" x2="32" y2="13" stroke="#090d16" stroke-width="1.5" class="env-letter" style="transform: inherit;" />
+    <line x1="8" y1="17" x2="26" y2="17" stroke="#090d16" stroke-width="1.5" class="env-letter" style="transform: inherit;" />
+
+    <!-- Back of envelope -->
+    <rect x="0" y="8" width="40" height="24" rx="2" class="env-back" />
+    
+    <!-- Front of envelope (lower cover) -->
+    <path d="M 0,32 L 20,20 L 40,32 Z" class="env-front" />
+    <path d="M 0,8 L 0,32 L 10,20 Z" class="env-front" />
+    <path d="M 40,8 L 40,32 L 30,20 Z" class="env-front" />
+
+    <!-- Flap (top cover) -->
+    <path d="M 0,8 L 20,20 L 40,8 Z" class="env-flap" />
   </g>
-  
+
   <!-- Badge Text -->
-  <text x="65" y="37" class="text">GMAIL</text>
+  <text x="85" y="40" class="text">SEND EMAIL</text>
 </svg>
