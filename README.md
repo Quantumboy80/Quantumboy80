@@ -1,7 +1,7 @@
 # 🌌 Hi there, I'm Sayan Som! <img src="https://media.giphy.com/media/hvRJCLFzcasr6/giphy.gif" width="30px">
 
 <p align="center">
-  <img src="./dashboard.svg" alt="Sayan Som Core Interface" width="100%" />
+  <img src="./dashboard-active.svg" alt="Sayan Som Core Interface" width="100%" />
 </p>
 
 <p align="center">
