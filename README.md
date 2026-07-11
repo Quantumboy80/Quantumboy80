@@ -138,11 +138,11 @@ This snake eats my contribution graph daily! (Generated automatically via GitHub
 
 <p align="center">
   <a href="https://www.linkedin.com/in/sayan-som-26853928b" target="_blank">
-    <img src="./linkedin-interactive.svg" alt="LinkedIn" width="240" height="70" />
+    <img src="./linkedin-active.svg" alt="LinkedIn" width="240" height="70" />
   </a>
   &nbsp;&nbsp;
   <a href="mailto:sayansom625@gmail.com" target="_blank">
-    <img src="./gmail-interactive.svg" alt="Gmail" width="240" height="70" />
+    <img src="./gmail-active.svg" alt="Gmail" width="240" height="70" />
   </a>
 </p>
 

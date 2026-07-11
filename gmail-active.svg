@@ -8,46 +8,42 @@
         fill: #090d16;
         stroke: #1f2937;
         stroke-width: 1.5;
-        transition: all 0.3s ease;
       }
       
       .border-glow {
         fill: none;
-        stroke: #ff007f;
+        stroke: #1f2937;
         stroke-width: 2;
-        stroke-dasharray: 620;
-        stroke-dashoffset: 620;
-        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        animation: border-pulse-pink 3s ease-in-out infinite;
       }
 
-      /* Back of envelope (Absolute coordinate system) */
+      /* Back of envelope */
       .env-back {
         fill: #1f2937;
         stroke: #4b5563;
         stroke-width: 1.5;
-        transition: all 0.3s ease;
+        animation: env-pulse 3s ease-in-out infinite;
       }
 
-      /* Letter card inside */
+      /* Letter card inside (Active sliding loop) */
       .env-letter {
         fill: #00f3ff;
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), fill 0.3s ease;
+        animation: mail-slide 4s ease-in-out infinite;
       }
 
       .env-front {
         fill: #0d121f;
         stroke: #4b5563;
         stroke-width: 1.5;
-        transition: all 0.3s ease;
+        animation: env-pulse 3s ease-in-out infinite;
       }
 
-      /* Envelope flap */
+      /* Envelope flap (Open envelope: points upwards) */
       .env-flap {
         fill: #1a2333;
         stroke: #4b5563;
         stroke-width: 1.5;
-        transform-origin: 45px 28px; /* Hinge center point on canvas: x=25+20=45, y=20+8=28 */
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), fill 0.3s ease, stroke 0.3s ease;
+        animation: flap-pulse 3s ease-in-out infinite;
       }
 
       .text {
@@ -56,37 +52,33 @@
         font-size: 14px;
         font-weight: bold;
         letter-spacing: 2px;
-        transition: all 0.3s ease;
+        animation: text-glow-pink 3s ease-in-out infinite;
       }
 
-      /* Hover States */
-      svg:hover .bg {
-        fill: #190f18;
-        stroke: #ff007f;
-        filter: drop-shadow(0 0 5px rgba(255, 0, 127, 0.15));
+      /* Active Looping Keyframes */
+      @keyframes mail-slide {
+        0%, 100% { transform: translateY(0px); fill: #00f3ff; filter: none; }
+        50% { transform: translateY(-13px); fill: #ff007f; filter: drop-shadow(0 0 4px #ff007f); }
       }
-      svg:hover .border-glow {
-        stroke-dashoffset: 0;
-        filter: drop-shadow(0 0 6px #ff007f);
+
+      @keyframes flap-pulse {
+        0%, 100% { fill: #1a2333; stroke: #4b5563; }
+        50% { fill: #ff007f; stroke: #ff007f; filter: drop-shadow(0 0 3px #ff007f); }
       }
-      svg:hover .text {
-        fill: #ff007f;
-        filter: drop-shadow(0 0 2px rgba(255, 0, 127, 0.5));
+
+      @keyframes env-pulse {
+        0%, 100% { stroke: #4b5563; }
+        50% { stroke: #ff007f; }
       }
-      
-      /* Interactive envelope opening on hover */
-      svg:hover .env-flap {
-        transform: scaleY(-1);
-        fill: #ff007f;
-        stroke: #ff007f;
+
+      @keyframes border-pulse-pink {
+        0%, 100% { stroke: #1f2937; filter: none; }
+        50% { stroke: #ff007f; filter: drop-shadow(0 0 4px #ff007f); }
       }
-      svg:hover .env-letter {
-        transform: translateY(-13px);
-        fill: #ff007f;
-        filter: drop-shadow(0 0 4px #ff007f);
-      }
-      svg:hover .env-back, svg:hover .env-front {
-        stroke: #ff007f;
+
+      @keyframes text-glow-pink {
+        0%, 100% { fill: #9ca3af; filter: none; }
+        50% { fill: #ff007f; filter: drop-shadow(0 0 2px rgba(255, 0, 127, 0.4)); }
       }
     </style>
   </defs>
@@ -95,9 +87,9 @@
   <rect x="5" y="5" width="230" height="60" rx="10" class="bg" />
   <rect x="5" y="5" width="230" height="60" rx="10" class="border-glow" />
 
-  <!-- Interactive Envelope (Built using absolute coordinates to prevent scaling shifts) -->
+  <!-- Interactive Envelope (Absolute coordinates + Active CSS loops) -->
   <g>
-    <!-- Letter that slides up (Grouped so lines and backing card shift together) -->
+    <!-- Letter that slides up & down -->
     <g class="env-letter">
       <rect x="28" y="24" width="34" height="20" rx="2" />
       <line x1="33" y1="29" x2="47" y2="29" stroke="#090d16" stroke-width="1.5" />
@@ -113,8 +105,8 @@
     <path d="M 25,28 L 25,52 L 35,40 Z" class="env-front" />
     <path d="M 65,28 L 65,52 L 55,40 Z" class="env-front" />
 
-    <!-- Flap (top cover) -->
-    <path d="M 25,28 L 45,40 L 65,28 Z" class="env-flap" />
+    <!-- Flap (Open envelope: points upwards to y=16) -->
+    <path d="M 25,28 L 45,16 L 65,28 Z" class="env-flap" />
   </g>
 
   <!-- Badge Text -->
