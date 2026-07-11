@@ -161,46 +161,58 @@
     <!-- Divider -->
     <line x1="0" y1="30" x2="470" y2="30" stroke="#1e293b" stroke-width="1.25" />
 
-    <!-- Terminal Content (Monospace, Simulated Typing Lines) -->
+    <!-- Console Text Content (Typing Simulation with nested layout groups) -->
     <!-- Line 1: User command -->
-    <g class="t-line1" transform="translate(20, 60)">
-      <text x="0" y="0" fill="#a855f7" font-weight="600" class="monospace">$</text>
-      <text x="18" y="0" fill="#ffffff" font-weight="500" class="monospace">init_profile --user sayansom</text>
+    <g transform="translate(20, 60)">
+      <g class="t-line1">
+        <text x="0" y="0" fill="#a855f7" font-weight="600" class="monospace">$</text>
+        <text x="18" y="0" fill="#ffffff" font-weight="500" class="monospace">init_profile --user sayansom</text>
+      </g>
     </g>
     
     <!-- Line 2: Loading State -->
-    <g class="t-line2" transform="translate(20, 88)">
-      <text x="0" y="0" fill="#00f0b5" class="monospace">✔</text>
-      <text x="18" y="0" fill="#94a3b8" class="monospace">Resolving neural telemetry ...</text>
-      <text x="245" y="0" fill="#00f0b5" font-weight="600" class="monospace">[DONE]</text>
+    <g transform="translate(20, 88)">
+      <g class="t-line2">
+        <text x="0" y="0" fill="#00f0b5" class="monospace">✔</text>
+        <text x="18" y="0" fill="#94a3b8" class="monospace">Resolving neural telemetry ...</text>
+        <text x="245" y="0" fill="#00f0b5" font-weight="600" class="monospace">[DONE]</text>
+      </g>
     </g>
 
     <!-- Line 3: Focus Area -->
-    <g class="t-line3" transform="translate(20, 120)">
-      <text x="0" y="0" fill="#a855f7" class="monospace">[info]</text>
-      <text x="55" y="0" fill="#ffffff" font-weight="600" class="monospace">Focus:</text>
-      <text x="110" y="0" fill="#94a3b8" class="monospace">Artificial Intelligence &amp; Data Science</text>
+    <g transform="translate(20, 120)">
+      <g class="t-line3">
+        <text x="0" y="0" fill="#a855f7" class="monospace">[info]</text>
+        <text x="55" y="0" fill="#ffffff" font-weight="600" class="monospace">Focus:</text>
+        <text x="110" y="0" fill="#94a3b8" class="monospace">Artificial Intelligence &amp; Data Science</text>
+      </g>
     </g>
 
     <!-- Line 4: Skills Stack -->
-    <g class="t-line4" transform="translate(20, 148)">
-      <text x="0" y="0" fill="#a855f7" class="monospace">[info]</text>
-      <text x="55" y="0" fill="#ffffff" font-weight="600" class="monospace">Skills:</text>
-      <text x="115" y="0" fill="#94a3b8" class="monospace">React | Next.js | TS | Node | Docker | ML</text>
+    <g transform="translate(20, 148)">
+      <g class="t-line4">
+        <text x="0" y="0" fill="#a855f7" class="monospace">[info]</text>
+        <text x="55" y="0" fill="#ffffff" font-weight="600" class="monospace">Skills:</text>
+        <text x="115" y="0" fill="#94a3b8" class="monospace">React | Next.js | TS | Node | Docker | ML</text>
+      </g>
     </g>
 
     <!-- Line 5: Objective -->
-    <g class="t-line5" transform="translate(20, 178)">
-      <text x="0" y="0" fill="#a855f7" class="monospace">[info]</text>
-      <text x="55" y="0" fill="#ffffff" font-weight="600" class="monospace">Mission:</text>
-      <text x="125" y="0" fill="#94a3b8" class="monospace">Translating complex AI ideas into simple code</text>
+    <g transform="translate(20, 178)">
+      <g class="t-line5">
+        <text x="0" y="0" fill="#a855f7" class="monospace">[info]</text>
+        <text x="55" y="0" fill="#ffffff" font-weight="600" class="monospace">Mission:</text>
+        <text x="125" y="0" fill="#94a3b8" class="monospace">Translating complex AI ideas into simple code</text>
+      </g>
     </g>
 
     <!-- Line 6: Prompt & Cursor -->
-    <g class="t-line6" transform="translate(20, 206)">
-      <text x="0" y="0" fill="#a855f7" font-weight="600" class="monospace">$</text>
-      <text x="18" y="0" fill="#ffffff" font-weight="500" class="monospace">await connection_init</text>
-      <rect x="185" y="-12" width="7" height="15" fill="#00f0b5" class="cursor glow-mint" />
+    <g transform="translate(20, 206)">
+      <g class="t-line6">
+        <text x="0" y="0" fill="#a855f7" font-weight="600" class="monospace">$</text>
+        <text x="18" y="0" fill="#ffffff" font-weight="500" class="monospace">await connection_init</text>
+        <rect x="185" y="-12" width="7" height="15" fill="#00f0b5" class="cursor glow-mint" />
+      </g>
     </g>
   </g>
 </svg>
