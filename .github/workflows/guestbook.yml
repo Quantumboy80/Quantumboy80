@@ -1,0 +1,143 @@
+name: Update Guestbook
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'guestbook')
+    permissions:
+      contents: write
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Process signature & update readme
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            const issue = context.payload.issue;
+            const username = issue.user.login;
+            const avatar = issue.user.avatar_url;
+            const body = issue.body;
+
+            if (!body) {
+              core.setFailed("Empty issue body");
+              return;
+            }
+
+            // Parse message from the body
+            const lines = body.split('\n');
+            let message = "";
+            let capture = false;
+            for (const line of lines) {
+              if (line.trim().startsWith('### Message')) {
+                capture = true;
+                continue;
+              }
+              if (capture) {
+                if (line.trim().startsWith('###')) {
+                  break;
+                }
+                message += line + '\n';
+              }
+            }
+            message = message.trim();
+
+            if (!message) {
+              core.setFailed("Could not parse message from issue body!");
+              return;
+            }
+
+            // Sanitize message: limit length to 100 characters and escape HTML characters
+            if (message.length > 100) {
+              message = message.substring(0, 97) + "...";
+            }
+            message = message.replace(/&/g, "&amp;")
+                             .replace(/</g, "&lt;")
+                             .replace(/>/g, "&gt;")
+                             .replace(/"/g, "&quot;")
+                             .replace(/'/g, "&#39;");
+
+            const date = new Date().toISOString().split('T')[0];
+
+            // Load existing guestbook
+            const guestbookPath = 'guestbook.json';
+            let guestbook = [];
+            if (fs.existsSync(guestbookPath)) {
+              try {
+                guestbook = JSON.parse(fs.readFileSync(guestbookPath, 'utf8'));
+              } catch (e) {
+                console.error("Error parsing guestbook.json, resetting to empty", e);
+              }
+            }
+
+            // Add new entry at the beginning
+            guestbook.unshift({ username, avatar, message, date });
+
+            // Keep only the last 8 entries
+            guestbook = guestbook.slice(0, 8);
+
+            // Write back guestbook.json
+            fs.writeFileSync(guestbookPath, JSON.stringify(guestbook, null, 2), 'utf8');
+
+            // Update README.md
+            const readmePath = 'README.md';
+            let readmeContent = fs.readFileSync(readmePath, 'utf8');
+
+            // Build HTML table for the guestbook
+            let tableHtml = "<!-- START_GUESTBOOK -->\n";
+            tableHtml += "<table>\n";
+            tableHtml += "  <thead>\n";
+            tableHtml += "    <tr>\n";
+            tableHtml += "      <th width=\"25%\">Visitor</th>\n";
+            tableHtml += "      <th width=\"60%\">Message</th>\n";
+            tableHtml += "      <th width=\"15%\">Date</th>\n";
+            tableHtml += "    </tr>\n";
+            tableHtml += "  </thead>\n";
+            tableHtml += "  <tbody>\n";
+
+            for (const entry of guestbook) {
+              tableHtml += "    <tr>\n";
+              tableHtml += `      <td><a href="https://github.com/${entry.username}"><img src="${entry.avatar}" width="35" height="35" style="border-radius: 50%; vertical-align: middle; margin-right: 8px;" alt="${entry.username}"/><b>@${entry.username}</b></a></td>\n`;
+              tableHtml += `      <td>💬 <i>${entry.message}</i></td>\n`;
+              tableHtml += `      <td><code>${entry.date}</code></td>\n`;
+              tableHtml += "    </tr>\n";
+            }
+
+            tableHtml += "  </tbody>\n";
+            tableHtml += "</table>\n";
+            tableHtml += "<!-- END_GUESTBOOK -->";
+
+            // Replace block in README.md
+            const guestbookRegex = /<!-- START_GUESTBOOK -->[\s\S]*?<!-- END_GUESTBOOK -->/g;
+            if (guestbookRegex.test(readmeContent)) {
+              readmeContent = readmeContent.replace(guestbookRegex, tableHtml);
+            } else {
+              readmeContent += "\n\n" + tableHtml;
+            }
+
+            fs.writeFileSync(readmePath, readmeContent, 'utf8');
+            console.log("Guestbook updated successfully!");
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md guestbook.json
+          git commit -m "chore: update guestbook with @${{ github.event.issue.user.login }}'s signature [skip ci]" || echo "No changes to commit"
+          git push
+
+      - name: Close Issue
+        run: |
+          gh issue close ${{ github.event.issue.number }} --comment "🎉 Thank you @${{ github.event.issue.user.login }}! Your signature has been recorded and added to my Guestbook wall. Check it out on my profile!"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

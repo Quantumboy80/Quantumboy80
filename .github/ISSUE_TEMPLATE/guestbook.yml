@@ -1,0 +1,19 @@
+name: "✍️ Sign Sayan's Guestbook"
+description: Leave a public message on Sayan Som's profile README!
+title: "Guestbook: Sign from @username"
+labels: ["guestbook"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🌌 Thank you for visiting Sayan's profile!
+        Use this form to leave a friendly message on his profile wall. 
+        Once you submit this issue, a GitHub Action will run in the background, update the README, and close this issue automatically within seconds!
+  - type: textarea
+    id: message
+    attributes:
+      label: Message
+      description: What message would you like to display on the profile wall? (Keep it friendly and concise, max 100 characters recommended)
+      placeholder: "Hi Sayan! Love your projects and interactive profile!"
+    validations:
+      required: true
