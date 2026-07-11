@@ -2,99 +2,93 @@
   <defs>
     <!-- Fonts -->
     <style type="text/css">
-      @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap');
       
       .bg {
-        fill: #090d16;
-        stroke: #1f2937;
+        fill: #030712;
+        stroke: url(#glass-border);
         stroke-width: 1.5;
       }
       
-      .border-glow {
-        fill: none;
-        stroke: #1f2937;
-        stroke-width: 2;
-        animation: border-pulse 3s ease-in-out infinite;
-      }
-
       .net-node {
-        fill: #4b5563;
+        fill: #475569;
         animation: node-glow 3s ease-in-out infinite;
       }
       .node-delay1 { animation-delay: 0.5s; }
-      .node-delay2 { animation-delay: 1s; }
+      .node-delay2 { animation-delay: 1.2s; }
 
       .net-line {
-        stroke: #1f2937;
+        stroke: #1e293b;
         stroke-width: 1;
         fill: none;
-        transition: stroke 0.3s ease;
       }
 
       .net-pulse {
-        stroke: #00f3ff;
+        stroke: #00f0b5;
         stroke-width: 1.5;
-        stroke-dasharray: 15 50;
-        stroke-dashoffset: 65;
+        stroke-dasharray: 12 40;
+        stroke-dashoffset: 52;
         fill: none;
-        animation: pulse-flow 2s linear infinite;
+        animation: pulse-flow 2.5s linear infinite;
       }
 
       .text {
-        fill: #9ca3af;
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 14px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        animation: text-glow 3s ease-in-out infinite;
+        fill: #94a3b8;
+        font-family: 'Fira Code', monospace;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        animation: text-glow-mint 3s ease-in-out infinite;
       }
 
       .icon {
-        fill: #9ca3af;
+        fill: #94a3b8;
         transform: translate(25px, 23px);
         animation: icon-breath 4s ease-in-out infinite;
       }
 
-      /* Active Looping Keyframes */
+      /* Glassmorphism Border Gradient */
+      <linearGradient id="glass-border" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1" />
+        <stop offset="35%" stop-color="#00f0b5" stop-opacity="0.3" />
+        <stop offset="75%" stop-color="#a855f7" stop-opacity="0.15" />
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03" />
+      </linearGradient>
+
+      /* Looping Animations */
       @keyframes pulse-flow {
-        0% { stroke-dashoffset: 65; }
+        0% { stroke-dashoffset: 52; }
         100% { stroke-dashoffset: 0; }
       }
 
       @keyframes node-glow {
-        0%, 100% { fill: #4b5563; filter: none; }
-        50% { fill: #00f3ff; filter: drop-shadow(0 0 3px #00f3ff); }
+        0%, 100% { fill: #475569; filter: none; }
+        50% { fill: #00f0b5; filter: drop-shadow(0 0 3px #00f0b5); }
       }
 
       @keyframes icon-breath {
-        0%, 100% { fill: #9ca3af; transform: translate(25px, 23px) scale(1); filter: none; }
-        50% { fill: #00f3ff; transform: translate(25px, 23px) scale(1.08); filter: drop-shadow(0 0 4px #00f3ff); transform-origin: 37px 35px; }
+        0%, 100% { fill: #94a3b8; transform: translate(25px, 23px) scale(1); filter: none; }
+        50% { fill: #00f0b5; transform: translate(25px, 23px) scale(1.06); filter: drop-shadow(0 0 4px #00f0b5); transform-origin: 37px 35px; }
       }
 
-      @keyframes border-pulse {
-        0%, 100% { stroke: #1f2937; filter: none; }
-        50% { stroke: #00f3ff; filter: drop-shadow(0 0 4px #00f3ff); }
-      }
-
-      @keyframes text-glow {
-        0%, 100% { fill: #9ca3af; filter: none; }
-        50% { fill: #00f3ff; filter: drop-shadow(0 0 2px rgba(0, 243, 255, 0.4)); }
+      @keyframes text-glow-mint {
+        0%, 100% { fill: #94a3b8; filter: none; }
+        50% { fill: #ffffff; filter: drop-shadow(0 0 2px rgba(0, 240, 181, 0.4)); }
       }
     </style>
   </defs>
 
-  <!-- Outer card -->
+  <!-- Outer Card Panel -->
   <rect x="5" y="5" width="230" height="60" rx="10" class="bg" />
-  <rect x="5" y="5" width="230" height="60" rx="10" class="border-glow" />
 
-  <!-- Circuit/Neural Grid Background -->
+  <!-- Neural Circuitry Grid -->
   <g transform="translate(15, 10)">
-    <!-- Connections -->
+    <!-- Paths -->
     <path d="M 5,25 L 20,10 L 40,10" class="net-line" />
     <path d="M 5,25 L 20,40 L 45,40" class="net-line" />
     <path d="M 20,10 L 20,40" class="net-line" />
     
-    <!-- Animated Pulses -->
+    <!-- Pulses -->
     <path d="M 5,25 L 20,10 L 40,10" class="net-pulse" />
     <path d="M 5,25 L 20,40 L 45,40" class="net-pulse" />
 
@@ -109,6 +103,6 @@
     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
   </g>
   
-  <!-- Badge Text -->
+  <!-- Text Label -->
   <text x="85" y="40" class="text">LINKEDIN</text>
 </svg>

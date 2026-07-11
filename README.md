@@ -127,7 +127,7 @@ This snake eats my contribution graph daily! (Generated automatically via GitHub
   </tr>
   <tr>
     <td colspan="2" align="center" valign="top">
-      <img src="https://github-readme-streak-stats.herokuapp.com/?user=Quantumboy80&amp;theme=tokyonight&amp;background=090d16&amp;stroke=1f2937&amp;ring=00f3ff&amp;fire=ff007f&amp;currStreakNum=00f3ff&amp;currStreakLabel=ff007f&amp;sideNums=f3f4f6&amp;sideLabels=9ca3af&amp;dates=9ca3af" alt="GitHub Streak Stats" />
+      <img src="https://github-readme-streak-stats.herokuapp.com/?user=Quantumboy80&amp;theme=tokyonight&amp;background=030712&amp;stroke=1e293b&amp;ring=00f0b5&amp;fire=a855f7&amp;currStreakNum=00f0b5&amp;currStreakLabel=a855f7&amp;sideNums=ffffff&amp;sideLabels=94a3b8&amp;dates=94a3b8" alt="GitHub Streak Stats" />
     </td>
   </tr>
 </table>

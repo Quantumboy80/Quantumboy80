@@ -2,281 +2,205 @@
   <defs>
     <!-- Fonts -->
     <style type="text/css">
-      @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&amp;family=Share+Tech+Mono&amp;display=swap');
-      
-      /* Reset &amp; Variables */
-      :root {
-        --bg-color: #090d16;
-        --border-color: #1f2937;
-        --neon-cyan: #00f3ff;
-        --neon-green: #39ff14;
-        --neon-pink: #ff007f;
-        --text-white: #f3f4f6;
-        --text-gray: #9ca3af;
-      }
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&amp;family=Inter:wght@300;400;600&amp;display=swap');
       
       svg {
-        background-color: #080c14;
-        font-family: 'Share Tech Mono', 'Fira Code', monospace;
-      }
-
-      /* Glow Effects */
-      .glow-cyan {
-        filter: drop-shadow(0 0 5px rgba(0, 243, 255, 0.6));
-      }
-      .glow-green {
-        filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.6));
-      }
-      .glow-pink {
-        filter: drop-shadow(0 0 5px rgba(255, 0, 127, 0.6));
-      }
-
-      /* Rotations */
-      @keyframes spin-cw {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      @keyframes spin-ccw {
-        from { transform: rotate(360deg); }
-        to { transform: rotate(0deg); }
+        background-color: #030712;
+        font-family: 'Inter', sans-serif;
       }
       
-      .rotate-cw {
-        transform-origin: 150px 200px;
-        animation: spin-cw 20s linear infinite;
-      }
-      .rotate-cw-fast {
-        transform-origin: 150px 200px;
-        animation: spin-cw 8s linear infinite;
-      }
-      .rotate-ccw {
-        transform-origin: 150px 200px;
-        animation: spin-ccw 15s linear infinite;
+      .monospace {
+        font-family: 'Fira Code', monospace;
       }
 
-      /* Scanline Effect */
-      @keyframes scanline {
-        0% { transform: translateY(-20px); opacity: 0.3; }
-        50% { opacity: 0.8; }
-        100% { transform: translateY(380px); opacity: 0.3; }
+      /* Glow Filters */
+      .glow-mint {
+        filter: drop-shadow(0 0 4px rgba(0, 240, 181, 0.6));
       }
-      .scanner {
-        animation: scanline 6s linear infinite;
+      .glow-purple {
+        filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.6));
       }
 
-      /* Blinking and Pulsing */
+      /* Blinking Cursor */
       @keyframes blink {
         0%, 100% { opacity: 1; }
         50% { opacity: 0; }
       }
-      .blinking {
+      .cursor {
         animation: blink 1s step-end infinite;
       }
-      
-      @keyframes pulse {
-        0%, 100% { opacity: 0.4; }
-        50% { opacity: 1; }
-      }
-      .pulsing {
-        animation: pulse 3s ease-in-out infinite;
-      }
 
-      /* Text Terminal Typing Simulation */
-      @keyframes type-line {
-        0%, 10% { opacity: 0; }
-        15%, 100% { opacity: 1; }
+      /* Typing lines delayed simulation */
+      @keyframes type-fade {
+        0%, 15% { opacity: 0; transform: translateY(3px); }
+        20%, 100% { opacity: 1; transform: translateY(0); }
       }
-      .t-line1 { animation: type-line 10s infinite; }
-      .t-line2 { animation: type-line 10s infinite; animation-delay: 1.5s; }
-      .t-line3 { animation: type-line 10s infinite; animation-delay: 3s; }
-      .t-line4 { animation: type-line 10s infinite; animation-delay: 4.5s; }
-      .t-line5 { animation: type-line 10s infinite; animation-delay: 6s; }
-      .t-line6 { animation: type-line 10s infinite; animation-delay: 7.5s; }
+      .t-line1 { animation: type-fade 12s infinite; }
+      .t-line2 { animation: type-fade 12s infinite; animation-delay: 1.5s; }
+      .t-line3 { animation: type-fade 12s infinite; animation-delay: 3s; }
+      .t-line4 { animation: type-fade 12s infinite; animation-delay: 4.5s; }
+      .t-line5 { animation: type-fade 12s infinite; animation-delay: 6s; }
+      .t-line6 { animation: type-fade 12s infinite; animation-delay: 7.5s; }
 
-      /* Path Drawing / Laser Lines */
-      @keyframes draw-path {
-        0% { stroke-dashoffset: 1000; }
-        100% { stroke-dashoffset: 0; }
+      /* Telemetry Grid Glow Pulse */
+      @keyframes grid-pulse {
+        0%, 100% { opacity: 0.15; }
+        50% { opacity: 0.35; }
       }
-      .laser-line {
-        stroke-dasharray: 50;
-        animation: draw-path 30s linear infinite;
-      }
-
-      /* Interactive Hover Styles */
-      .interactive-node {
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-      .interactive-node:hover {
-        fill: #00f3ff;
-        filter: drop-shadow(0 0 8px #00f3ff);
-      }
-      .card-panel {
-        transition: stroke 0.3s ease;
-      }
-      .card-panel:hover {
-        stroke: #ff007f;
+      .grid-bg {
+        animation: grid-pulse 8s ease-in-out infinite;
       }
     </style>
 
-    <!-- Glowing Filters -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4" result="blur" />
+    <!-- Ambient Aurora Lights -->
+    <radialGradient id="aurora-mint" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0b5" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#030712" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="aurora-purple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#030712" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Glassmorphism Edge Gradient -->
+    <linearGradient id="glass-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15" />
+      <stop offset="25%" stop-color="#00f0b5" stop-opacity="0.35" />
+      <stop offset="75%" stop-color="#a855f7" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05" />
+    </linearGradient>
+
+    <!-- Core Glow Filters -->
+    <filter id="glow-mint-filter">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow-purple-filter">
+      <feGaussianBlur stdDeviation="3" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
 
-  <!-- Deep Cyber Grid Background -->
-  <rect width="850" height="380" fill="#070b12" />
-  
-  <!-- Subtle Grid Lines -->
-  <g stroke="#111827" stroke-width="1">
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" />
+  <!-- Solid base background -->
+  <rect width="850" height="380" fill="#030712" />
+
+  <!-- Shifting Aurora Lights in Background (Slow Organic Drift) -->
+  <circle cx="150" cy="300" r="220" fill="url(#aurora-mint)">
+    <animate attributeName="cx" values="150;210;120;150" dur="22s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="300;240;330;300" dur="22s" repeatCount="indefinite" />
+    <animate attributeName="r" values="220;250;200;220" dur="22s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="700" cy="100" r="250" fill="url(#aurora-purple)">
+    <animate attributeName="cx" values="700;640;740;700" dur="26s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="100;160;70;100" dur="26s" repeatCount="indefinite" />
+    <animate attributeName="r" values="250;210;270;250" dur="26s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Technical Dot Grid -->
+  <g class="grid-bg">
+    <pattern id="dotgrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.75" fill="#475569" opacity="0.7" />
     </pattern>
-    <rect width="850" height="380" fill="url(#grid)" opacity="0.4" />
+    <rect width="850" height="380" fill="url(#dotgrid)" />
   </g>
 
-  <!-- Animated Scanline Grid -->
-  <line x1="0" y1="0" x2="850" y2="0" stroke="rgba(0, 243, 255, 0.15)" stroke-width="3" class="scanner glow-cyan" />
-
-  <!-- Holographic Terminal Outer Frame -->
-  <rect x="15" y="15" width="820" height="350" rx="12" fill="none" stroke="#1f2937" stroke-width="2" />
-  <rect x="19" y="19" width="812" height="342" rx="10" fill="none" stroke="#111827" stroke-width="1" />
-
-  <!-- Top Title Display -->
-  <g transform="translate(0, 0)">
-    <!-- Tech brackets -->
-    <path d="M 30 45 L 20 45 L 20 25 L 180 25 L 190 35 L 320 35 L 330 25 L 820 25 L 820 45 L 810 45" fill="none" stroke="#1f2937" stroke-width="1.5" />
+  <!-- Modern Layout Header Line -->
+  <g transform="translate(30, 35)">
+    <text x="0" y="0" fill="#ffffff" font-size="13" font-weight="600" letter-spacing="3" opacity="0.9">SAYAN SOM</text>
+    <text x="110" y="0" fill="#475569" font-size="13" font-weight="300" letter-spacing="1">|</text>
+    <text x="130" y="0" fill="#00f0b5" font-size="11" font-weight="600" letter-spacing="2" class="glow-mint">NEURAL_CORE_v2.0</text>
     
-    <!-- Neon Title -->
-    <text x="35" y="38" fill="#f3f4f6" font-size="14" font-weight="bold" letter-spacing="2">SAYAN_SOM // CORE_INTERFACE</text>
-    <rect x="300" y="29" width="10" height="10" fill="#00f3ff" class="pulsing" />
-    
-    <!-- System Status Widget -->
-    <text x="690" y="38" fill="#9ca3af" font-size="12" text-anchor="end">SYS_STATUS:</text>
-    <circle cx="705" cy="34" r="5" fill="#39ff14" class="glow-green blinking" />
-    <text x="718" y="38" fill="#39ff14" font-size="12" font-weight="bold">ONLINE</text>
+    <text x="790" y="0" fill="#94a3b8" font-size="11" text-anchor="end" font-weight="400" letter-spacing="1">SYSTEM ACTIVE</text>
+    <circle cx="798" cy="-4" r="3.5" fill="#00f0b5" class="glow-mint" />
   </g>
 
-  <!-- LEFT PANE: Animated Circular AI Hub / Radar -->
-  <g transform="translate(0, 0)">
-    <!-- Radar Grid Lines -->
-    <line x1="150" y1="100" x2="150" y2="300" stroke="#111827" stroke-width="1" />
-    <line x1="50" y1="200" x2="250" y2="200" stroke="#111827" stroke-width="1" />
-    <circle cx="150" cy="200" r="100" fill="none" stroke="#111827" stroke-dasharray="4 4" />
+  <!-- LEFT PANE: Gravitational / Orbital Data Ring Model -->
+  <g transform="translate(10, 0)">
+    <!-- Radial concentric grids -->
+    <circle cx="150" cy="200" r="85" fill="none" stroke="#1e293b" stroke-width="0.75" />
+    <circle cx="150" cy="200" r="60" fill="none" stroke="#1e293b" stroke-width="0.75" />
+    <circle cx="150" cy="200" r="35" fill="none" stroke="#1e293b" stroke-width="0.75" />
+
+    <!-- Orbital Trajectory Paths (Elegant ellipses) -->
+    <path id="orbit1" d="M 50,200 C 50,140 250,140 250,200 C 250,260 50,260 50,200" fill="none" stroke="#334155" stroke-width="1.25" stroke-dasharray="3 4" />
+    <path id="orbit2" d="M 75,200 C 75,130 225,130 225,200 C 225,270 75,270 75,200" fill="none" stroke="#334155" stroke-width="1.25" stroke-dasharray="3 4" transform="rotate(35 150 200)" />
+    <path id="orbit3" d="M 85,200 C 85,120 215,120 215,200 C 215,280 85,280 85,200" fill="none" stroke="#334155" stroke-width="1.25" stroke-dasharray="3 4" transform="rotate(-35 150 200)" />
+
+    <!-- Orbiting Data Particles (Moving along paths) -->
+    <circle r="3.5" fill="#00f0b5" filter="url(#glow-mint-filter)">
+      <animateMotion dur="8s" repeatCount="indefinite" path="M 50,200 C 50,140 250,140 250,200 C 250,260 50,260 50,200" />
+    </circle>
+    <circle r="3" fill="#a855f7" filter="url(#glow-purple-filter)">
+      <animateMotion dur="11s" repeatCount="indefinite" path="M 75,200 C 75,130 225,130 225,200 C 225,270 75,270 75,200" />
+    </circle>
+    <circle r="2" fill="#ffffff">
+      <animateMotion dur="14s" repeatCount="indefinite" path="M 85,200 C 85,120 215,120 215,200 C 215,280 85,280 85,200" />
+    </circle>
+
+    <!-- Center Core Glow -->
+    <circle cx="150" cy="200" r="10" fill="rgba(0, 240, 181, 0.15)" stroke="#00f0b5" stroke-width="1.5" class="glow-mint" />
+    <circle cx="150" cy="200" r="3.5" fill="#00f0b5" />
     
-    <!-- Rotating Outer Ring -->
-    <circle cx="150" cy="200" r="85" fill="none" stroke="#1f2937" stroke-width="1.5" />
-    <circle cx="150" cy="200" r="85" fill="none" stroke="#ff007f" stroke-width="2" stroke-dasharray="30 180" class="rotate-ccw glow-pink" />
-    
-    <!-- Rotating Middle Ring (Cyan Tech Gear) -->
-    <circle cx="150" cy="200" r="65" fill="none" stroke="#00f3ff" stroke-width="2.5" stroke-dasharray="40 20 80 40" class="rotate-cw glow-cyan" />
-    
-    <!-- Rotating Inner Ring -->
-    <circle cx="150" cy="200" r="45" fill="none" stroke="#39ff14" stroke-width="1.5" stroke-dasharray="10 10" class="rotate-cw-fast" />
-    
-    <!-- Center Pulsing Core -->
-    <circle cx="150" cy="200" r="15" fill="rgba(0, 243, 255, 0.15)" stroke="#00f3ff" stroke-width="2" class="glow-cyan pulsing" />
-    <circle cx="150" cy="200" r="6" fill="#00f3ff" class="glow-cyan" />
-    
-    <!-- Tech Label underneath radar -->
-    <text x="150" y="325" fill="#9ca3af" font-size="11" text-anchor="middle" letter-spacing="1.5">COGNITIVE_GRID_ACTIVE</text>
+    <text x="150" y="325" fill="#94a3b8" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="2">DATA_WAVEFORM_ACTIVE</text>
   </g>
 
-  <!-- CONNECTION / CIRCUIT LINES -->
-  <g fill="none" stroke-width="1.5">
-    <!-- Line from radar to center console -->
-    <path d="M 235 200 L 280 200 L 300 220 L 330 220" stroke="#1f2937" />
-    <path d="M 220 150 L 260 150 L 280 130 L 330 130" stroke="#1f2937" />
-    
-    <!-- Neon traveling pulses -->
-    <path d="M 235 200 L 280 200 L 300 220 L 330 220" stroke="#00f3ff" class="laser-line" />
-    <path d="M 220 150 L 260 150 L 280 130 L 330 130" stroke="#ff007f" class="laser-line" />
-  </g>
+  <!-- Elegant Divider Line -->
+  <line x1="310" y1="90" x2="310" y2="310" stroke="#1e293b" stroke-width="1" />
 
-  <!-- RIGHT PANE: Interactive Terminal Console Window -->
+  <!-- RIGHT PANE: Modern Glassmorphism Terminal Console -->
   <g transform="translate(340, 75)">
-    <!-- Console Backdrop -->
-    <rect width="470" height="235" rx="8" fill="#0b0f19" stroke="#1f2937" stroke-width="2" class="card-panel" />
+    <!-- Card Glass Panel Background -->
+    <rect width="470" height="235" rx="10" fill="rgba(15, 23, 42, 0.65)" stroke="url(#glass-border)" stroke-width="1.5" />
     
-    <!-- Terminal Title Bar -->
-    <path d="M 0 25 L 470 25" stroke="#1f2937" stroke-width="1.5" />
-    <circle cx="15" cy="12" r="4" fill="#ff5f56" />
-    <circle cx="27" cy="12" r="4" fill="#ffbd2e" />
-    <circle cx="39" cy="12" r="4" fill="#27c93f" />
-    <text x="60" y="16" fill="#9ca3af" font-size="11">terminal - zsh - 80x24</text>
+    <!-- Window Controls (Clean dots) -->
+    <circle cx="20" cy="15" r="4.5" fill="#ff5f56" />
+    <circle cx="32" cy="15" r="4.5" fill="#ffbd2e" />
+    <circle cx="44" cy="15" r="4.5" fill="#27c93f" />
+    <text x="65" y="19" fill="#475569" font-size="11" font-weight="500" class="monospace">core-terminal</text>
     
-    <!-- Console Text Content (Typing Simulation) -->
+    <!-- Divider -->
+    <line x1="0" y1="30" x2="470" y2="30" stroke="#1e293b" stroke-width="1.25" />
+
+    <!-- Terminal Content (Monospace, Simulated Typing Lines) -->
     <!-- Line 1: User command -->
-    <g class="t-line1">
-      <text x="20" y="55" fill="#ff007f" font-weight="bold">$</text>
-      <text x="35" y="55" fill="#f3f4f6">init_profile --user sayansom</text>
+    <g class="t-line1" transform="translate(20, 60)">
+      <text x="0" y="0" fill="#a855f7" font-weight="600" class="monospace">$</text>
+      <text x="18" y="0" fill="#ffffff" font-weight="500" class="monospace">init_profile --user sayansom</text>
     </g>
     
     <!-- Line 2: Loading State -->
-    <g class="t-line2">
-      <text x="20" y="80" fill="#39ff14">&gt;</text>
-      <text x="35" y="80" fill="#9ca3af">Loading cognitive modules...</text>
-      <text x="260" y="80" fill="#39ff14">[SUCCESS]</text>
+    <g class="t-line2" transform="translate(20, 88)">
+      <text x="0" y="0" fill="#00f0b5" class="monospace">✔</text>
+      <text x="18" y="0" fill="#94a3b8" class="monospace">Resolving neural telemetry ...</text>
+      <text x="245" y="0" fill="#00f0b5" font-weight="600" class="monospace">[DONE]</text>
     </g>
 
-    <!-- Line 3: Details - AI & Data Science -->
-    <g class="t-line3">
-      <text x="20" y="110" fill="#00f3ff">[INFO]</text>
-      <text x="75" y="110" fill="#f3f4f6" font-weight="bold">Focus:</text>
-      <text x="130" y="110" fill="#9ca3af">Artificial Intelligence &amp; Data Science</text>
+    <!-- Line 3: Focus Area -->
+    <g class="t-line3" transform="translate(20, 120)">
+      <text x="0" y="0" fill="#a855f7" class="monospace">[info]</text>
+      <text x="55" y="0" fill="#ffffff" font-weight="600" class="monospace">Focus:</text>
+      <text x="110" y="0" fill="#94a3b8" class="monospace">Artificial Intelligence &amp; Data Science</text>
     </g>
 
-    <!-- Line 4: Tech stack summary -->
-    <g class="t-line4">
-      <text x="20" y="135" fill="#00f3ff">[INFO]</text>
-      <text x="75" y="135" fill="#f3f4f6" font-weight="bold">Skills:</text>
-      <text x="135" y="135" fill="#9ca3af">React | Next.js | TS | Node | Docker | ML</text>
+    <!-- Line 4: Skills Stack -->
+    <g class="t-line4" transform="translate(20, 148)">
+      <text x="0" y="0" fill="#a855f7" class="monospace">[info]</text>
+      <text x="55" y="0" fill="#ffffff" font-weight="600" class="monospace">Skills:</text>
+      <text x="115" y="0" fill="#94a3b8" class="monospace">React | Next.js | TS | Node | Docker | ML</text>
     </g>
 
-    <!-- Line 5: Projects / Fun Fact -->
-    <g class="t-line5">
-      <text x="20" y="165" fill="#00f3ff">[INFO]</text>
-      <text x="75" y="165" fill="#f3f4f6" font-weight="bold">Mission:</text>
-      <text x="145" y="165" fill="#9ca3af">Translating complex AI ideas into simple code</text>
+    <!-- Line 5: Objective -->
+    <g class="t-line5" transform="translate(20, 178)">
+      <text x="0" y="0" fill="#a855f7" class="monospace">[info]</text>
+      <text x="55" y="0" fill="#ffffff" font-weight="600" class="monospace">Mission:</text>
+      <text x="125" y="0" fill="#94a3b8" class="monospace">Translating complex AI ideas into simple code</text>
     </g>
 
-    <!-- Line 6: Prompt & Blinking Cursor -->
-    <g class="t-line6">
-      <text x="20" y="195" fill="#ff007f" font-weight="bold">$</text>
-      <text x="35" y="195" fill="#f3f4f6">await collaboration</text>
-      <rect x="185" y="182" width="8" height="15" fill="#00f3ff" class="blinking glow-cyan" />
+    <!-- Line 6: Prompt & Cursor -->
+    <g class="t-line6" transform="translate(20, 206)">
+      <text x="0" y="0" fill="#a855f7" font-weight="600" class="monospace">$</text>
+      <text x="18" y="0" fill="#ffffff" font-weight="500" class="monospace">await connection_init</text>
+      <rect x="185" y="-12" width="7" height="15" fill="#00f0b5" class="cursor glow-mint" />
     </g>
-    
-    <!-- Mini decorative elements in console -->
-    <line x1="420" y1="215" x2="450" y2="215" stroke="#1f2937" stroke-width="1.5" />
-    <rect x="445" y="212" width="5" height="5" fill="#ff007f" />
-  </g>
-
-  <!-- Interactive Nodes (Floating cyber elements on bottom) -->
-  <g transform="translate(340, 320)" fill="#1f2937" stroke-width="0">
-    <circle cx="20" cy="15" r="5" class="interactive-node" />
-    <line x1="25" y1="15" x2="60" y2="15" stroke="#1f2937" stroke-width="1" />
-    <circle cx="65" cy="15" r="3" class="interactive-node" />
-    <line x1="70" y1="15" x2="105" y2="15" stroke="#1f2937" stroke-width="1" />
-    <rect x="110" y="11" width="30" height="8" rx="2" class="interactive-node" />
-    <text x="180" y="19" fill="#1f2937" font-size="10" letter-spacing="1">LINK_ESTABLISHED</text>
-  </g>
-  
-  <!-- Outer glowing neon nodes in corners -->
-  <g stroke-width="1.5">
-    <path d="M 25 25 L 35 25" stroke="#00f3ff" class="glow-cyan" />
-    <path d="M 25 25 L 25 35" stroke="#00f3ff" class="glow-cyan" />
-    
-    <path d="M 825 25 L 815 25" stroke="#00f3ff" class="glow-cyan" />
-    <path d="M 825 25 L 825 35" stroke="#00f3ff" class="glow-cyan" />
-
-    <path d="M 25 355 L 35 355" stroke="#ff007f" class="glow-pink" />
-    <path d="M 25 355 L 25 345" stroke="#ff007f" class="glow-pink" />
-
-    <path d="M 825 355 L 815 355" stroke="#ff007f" class="glow-pink" />
-    <path d="M 825 355 L 825 345" stroke="#ff007f" class="glow-pink" />
   </g>
 </svg>

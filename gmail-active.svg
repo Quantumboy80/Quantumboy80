@@ -2,99 +2,94 @@
   <defs>
     <!-- Fonts -->
     <style type="text/css">
-      @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Code&amp;display=swap');
       
       .bg {
-        fill: #090d16;
-        stroke: #1f2937;
+        fill: #030712;
+        stroke: url(#glass-border);
         stroke-width: 1.5;
       }
       
-      .border-glow {
-        fill: none;
-        stroke: #1f2937;
-        stroke-width: 2;
-        animation: border-pulse-pink 3s ease-in-out infinite;
-      }
-
       /* Back of envelope */
       .env-back {
-        fill: #1f2937;
-        stroke: #4b5563;
+        fill: #1e293b;
+        stroke: #475569;
         stroke-width: 1.5;
-        animation: env-pulse 3s ease-in-out infinite;
+        animation: env-pulse-purple 3s ease-in-out infinite;
       }
 
       /* Letter card inside (Active sliding loop) */
       .env-letter {
-        fill: #00f3ff;
-        animation: mail-slide 4s ease-in-out infinite;
+        fill: #00f0b5;
+        animation: mail-slide-mint 4s ease-in-out infinite;
       }
 
       .env-front {
-        fill: #0d121f;
-        stroke: #4b5563;
+        fill: #0f172a;
+        stroke: #475569;
         stroke-width: 1.5;
-        animation: env-pulse 3s ease-in-out infinite;
+        animation: env-pulse-purple 3s ease-in-out infinite;
       }
 
       /* Envelope flap (Open envelope: points upwards) */
       .env-flap {
-        fill: #1a2333;
-        stroke: #4b5563;
+        fill: #1e1b4b;
+        stroke: #475569;
         stroke-width: 1.5;
-        animation: flap-pulse 3s ease-in-out infinite;
+        animation: flap-pulse-purple 3s ease-in-out infinite;
       }
 
       .text {
-        fill: #9ca3af;
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 14px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        animation: text-glow-pink 3s ease-in-out infinite;
+        fill: #94a3b8;
+        font-family: 'Fira Code', monospace;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        animation: text-glow-purple 3s ease-in-out infinite;
       }
 
-      /* Active Looping Keyframes */
-      @keyframes mail-slide {
-        0%, 100% { transform: translateY(0px); fill: #00f3ff; filter: none; }
-        50% { transform: translateY(-13px); fill: #ff007f; filter: drop-shadow(0 0 4px #ff007f); }
+      /* Glassmorphism Border Gradient */
+      <linearGradient id="glass-border" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1" />
+        <stop offset="35%" stop-color="#00f0b5" stop-opacity="0.25" />
+        <stop offset="75%" stop-color="#a855f7" stop-opacity="0.2" />
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03" />
+      </linearGradient>
+
+      /* Looping Animations */
+      @keyframes mail-slide-mint {
+        0%, 100% { transform: translateY(0px); fill: #00f0b5; filter: none; }
+        50% { transform: translateY(-13px); fill: #a855f7; filter: drop-shadow(0 0 4px #a855f7); }
       }
 
-      @keyframes flap-pulse {
-        0%, 100% { fill: #1a2333; stroke: #4b5563; }
-        50% { fill: #ff007f; stroke: #ff007f; filter: drop-shadow(0 0 3px #ff007f); }
+      @keyframes flap-pulse-purple {
+        0%, 100% { fill: #1e1b4b; stroke: #475569; }
+        50% { fill: #a855f7; stroke: #a855f7; filter: drop-shadow(0 0 3px #a855f7); }
       }
 
-      @keyframes env-pulse {
-        0%, 100% { stroke: #4b5563; }
-        50% { stroke: #ff007f; }
+      @keyframes env-pulse-purple {
+        0%, 100% { stroke: #475569; }
+        50% { stroke: #a855f7; }
       }
 
-      @keyframes border-pulse-pink {
-        0%, 100% { stroke: #1f2937; filter: none; }
-        50% { stroke: #ff007f; filter: drop-shadow(0 0 4px #ff007f); }
-      }
-
-      @keyframes text-glow-pink {
-        0%, 100% { fill: #9ca3af; filter: none; }
-        50% { fill: #ff007f; filter: drop-shadow(0 0 2px rgba(255, 0, 127, 0.4)); }
+      @keyframes text-glow-purple {
+        0%, 100% { fill: #94a3b8; filter: none; }
+        50% { fill: #ffffff; filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.4)); }
       }
     </style>
   </defs>
 
-  <!-- Outer card -->
+  <!-- Outer Card Panel -->
   <rect x="5" y="5" width="230" height="60" rx="10" class="bg" />
-  <rect x="5" y="5" width="230" height="60" rx="10" class="border-glow" />
 
   <!-- Interactive Envelope (Absolute coordinates + Active CSS loops) -->
   <g>
     <!-- Letter that slides up & down -->
     <g class="env-letter">
       <rect x="28" y="24" width="34" height="20" rx="2" />
-      <line x1="33" y1="29" x2="47" y2="29" stroke="#090d16" stroke-width="1.5" />
-      <line x1="33" y1="33" x2="57" y2="33" stroke="#090d16" stroke-width="1.5" />
-      <line x1="33" y1="37" x2="51" y2="37" stroke="#090d16" stroke-width="1.5" />
+      <line x1="33" y1="29" x2="47" y2="29" stroke="#030712" stroke-width="1.5" />
+      <line x1="33" y1="33" x2="57" y2="33" stroke="#030712" stroke-width="1.5" />
+      <line x1="33" y1="37" x2="51" y2="37" stroke="#030712" stroke-width="1.5" />
     </g>
 
     <!-- Back of envelope -->
