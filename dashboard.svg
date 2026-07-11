@@ -233,7 +233,7 @@
     <g class="t-line4">
       <text x="20" y="135" fill="#00f3ff">[INFO]</text>
       <text x="75" y="135" fill="#f3f4f6" font-weight="bold">Skills:</text>
-      <text x="135" y="135" fill="#9ca3af">Python | JS | React | GCP | DevOps</text>
+      <text x="135" y="135" fill="#9ca3af">React | Next.js | TS | Node | Docker | ML</text>
     </g>
 
     <!-- Line 5: Projects / Fun Fact -->

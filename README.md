@@ -31,7 +31,7 @@ I am a developer from India passionate about translating ideas into code. I spec
 
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=python,js,html,css,bootstrap,git,github,vscode,jupyter,gcp&amp;theme=dark" alt="My Skills" />
+    <img src="https://skillicons.dev/icons?i=python,js,ts,html,css,bootstrap,react,nextjs,nodejs,bun,mongodb,postgres,prisma,docker,gcp,huggingface,git,github,vscode,jupyter,notion&amp;theme=dark" alt="My Skills" />
   </a>
 </p>
 
