@@ -121,13 +121,13 @@ This snake eats my contribution graph daily! (Generated automatically via GitHub
     </td>
   </tr>
   <tr>
-    <td colspan="2" valign="top">
-      <img src="https://raw.githubusercontent.com/Quantumboy80/Quantumboy80/main/metrics.isocalendar.svg" alt="3D Contribution Graph" width="100%" />
+    <td colspan="2" align="center" valign="top">
+      <img src="https://raw.githubusercontent.com/Quantumboy80/Quantumboy80/main/metrics.isocalendar.svg" alt="3D Contribution Graph" width="70%" />
     </td>
   </tr>
   <tr>
-    <td colspan="2" valign="top">
-      <img src="https://raw.githubusercontent.com/Quantumboy80/Quantumboy80/main/metrics.habits.svg" alt="Coding Habits" width="100%" />
+    <td colspan="2" align="center" valign="top">
+      <img src="https://raw.githubusercontent.com/Quantumboy80/Quantumboy80/main/metrics.habits.svg" alt="Coding Habits" width="70%" />
     </td>
   </tr>
 </table>
