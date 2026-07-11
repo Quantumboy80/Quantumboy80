@@ -138,10 +138,11 @@ This snake eats my contribution graph daily! (Generated automatically via GitHub
 
 <p align="center">
   <a href="https://www.linkedin.com/in/sayan-som-26853928b" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=white" alt="LinkedIn" />
+    <img src="./linkedin.svg" alt="LinkedIn" width="210" height="62" />
   </a>
+  &nbsp;&nbsp;
   <a href="mailto:sayansom625@gmail.com" target="_blank">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&amp;logo=gmail&amp;logoColor=white" alt="Gmail" />
+    <img src="./gmail.svg" alt="Gmail" width="210" height="62" />
   </a>
 </p>
 
