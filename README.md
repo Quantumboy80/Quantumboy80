@@ -11,9 +11,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/STATUS-OPEN_TO_OPPORTUNITIES-39FF14?style=for-the-badge&amp;labelColor=0d1117" />
-  <img src="https://img.shields.io/badge/FOCUS-SOFTWARE_%C3%97_AI-39FF14?style=for-the-badge&amp;labelColor=0d1117" />
-  <img src="https://img.shields.io/badge/BASE-KOLKATA,_IN-39FF14?style=for-the-badge&amp;labelColor=0d1117" />
+  <img src="https://img.shields.io/static/v1?label=STATUS&message=OPEN%20TO%20OPPORTUNITIES&color=39FF14&labelColor=0d1117&style=for-the-badge" alt="Status: open to opportunities" />
+  <img src="https://img.shields.io/static/v1?label=FOCUS&message=SOFTWARE%20%2B%20AI&color=39FF14&labelColor=0d1117&style=for-the-badge" alt="Focus: software and AI" />
+  <img src="https://img.shields.io/static/v1?label=BASE&message=KOLKATA%2C%20IN&color=39FF14&labelColor=0d1117&style=for-the-badge" alt="Base: Kolkata, IN" />
 </p>
 
 ```bash
