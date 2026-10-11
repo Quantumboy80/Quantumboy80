@@ -11,9 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=STATUS&message=OPEN%20TO%20OPPORTUNITIES&color=39FF14&labelColor=0d1117&style=for-the-badge" alt="Status: open to opportunities" />
-  <img src="https://img.shields.io/static/v1?label=FOCUS&message=SOFTWARE%20%2B%20AI&color=39FF14&labelColor=0d1117&style=for-the-badge" alt="Focus: software and AI" />
-  <img src="https://img.shields.io/static/v1?label=BASE&message=KOLKATA%2C%20IN&color=39FF14&labelColor=0d1117&style=for-the-badge" alt="Base: Kolkata, IN" />
+  <img src="./badges.svg" alt="Status: open to opportunities · Focus: software + AI · Base: Kolkata, IN" />
 </p>
 
 ```bash
@@ -31,7 +29,6 @@ sayan@core:~$ status
 <p align="center">
   <img src="https://api.visitorbadge.io/api/visitors?path=Quantumboy80&amp;labelColor=%231f2327&amp;countColor=%2339FF14&amp;style=flat-square" alt="Visitors" />
 </p>
-
 ---
 
 ### 🔮 About Me
