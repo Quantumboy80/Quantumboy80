@@ -1,14 +1,32 @@
 # 🌌 Hi there, I'm Sayan Som! <img src="https://media.giphy.com/media/hvRJCLFzcasr6/giphy.gif" width="30px">
 
 <p align="center">
-  <img src="./dashboard-active.svg" alt="Sayan Som Core Interface" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&amp;height=240&amp;color=0:0d1117,60:0b3d0b,100:39FF14&amp;text=SAYAN%20SOM&amp;fontColor=ffffff&amp;fontSize=64&amp;fontAlignY=38&amp;animation=fadeIn&amp;desc=Electrical%20Engineer%20%E2%86%92%20Software%20%C3%97%20AI%20Builder&amp;descSize=20&amp;descAlignY=60&amp;descColor=39FF14" alt="Sayan Som" width="100%" />
 </p>
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&amp;size=24&amp;duration=3000&amp;pause=1000&amp;color=39FF14&amp;center=true&amp;vCenter=true&amp;width=500&amp;lines=%F0%9F%A7%A0+AI+%26+Data+Science+Enthusiast;%F0%9F%92%BB+Full-Stack+Web+Developer;%F0%9F%9A%80+Open+Source+Contributor" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&amp;weight=600&amp;size=22&amp;duration=2800&amp;pause=900&amp;color=39FF14&amp;center=true&amp;vCenter=true&amp;width=650&amp;height=50&amp;lines=%3E+shipping+real+products%2C+not+tutorial+projects;%3E+training+models+%26+wiring+them+into+apps;%3E+electrons+by+degree%2C+code+by+obsession;%3E+open+source+%7C+AI+%7C+systems" alt="Typing SVG" />
   </a>
 </p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-OPEN_TO_OPPORTUNITIES-39FF14?style=for-the-badge&amp;labelColor=0d1117" />
+  <img src="https://img.shields.io/badge/FOCUS-SOFTWARE_%C3%97_AI-39FF14?style=for-the-badge&amp;labelColor=0d1117" />
+  <img src="https://img.shields.io/badge/BASE-KOLKATA,_IN-39FF14?style=for-the-badge&amp;labelColor=0d1117" />
+</p>
+
+```bash
+sayan@core:~$ whoami
+> Sayan Som — 4th-year EE @ IEM Kolkata
+sayan@core:~$ cat focus.txt
+> software engineering · applied AI · deployed products
+sayan@core:~$ cat achievements.txt
+> 🏆 Best Paper Award — BIOSPECTRUM 2025
+> 🤖 Anthropic certified: Claude Code · MCP
+sayan@core:~$ status
+> building something new... ▌
+```
 
 <p align="center">
   <img src="https://api.visitorbadge.io/api/visitors?path=Quantumboy80&amp;labelColor=%231f2327&amp;countColor=%2339FF14&amp;style=flat-square" alt="Visitors" />
