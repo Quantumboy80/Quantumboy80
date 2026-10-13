@@ -1,17 +1,15 @@
 # 🌌 Hi there, I'm Sayan Som! <img src="https://media.giphy.com/media/hvRJCLFzcasr6/giphy.gif" width="30px">
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&amp;height=240&amp;color=0:0d1117,60:0b3d0b,100:39FF14&amp;text=SAYAN%20SOM&amp;fontColor=ffffff&amp;fontSize=64&amp;fontAlignY=38&amp;animation=fadeIn&amp;desc=Electrical%20Engineer%20%E2%86%92%20Software%20%C3%97%20AI%20Builder&amp;descSize=20&amp;descAlignY=60&amp;descColor=39FF14" alt="Sayan Som" width="100%" />
+  <img src="./header-text.svg" alt="Sayan Som, electrical engineer turned software and AI builder" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&amp;weight=600&amp;size=22&amp;duration=2800&amp;pause=900&amp;color=39FF14&amp;center=true&amp;vCenter=true&amp;width=650&amp;height=50&amp;lines=%3E+shipping+real+products%2C+not+tutorial+projects;%3E+training+models+%26+wiring+them+into+apps;%3E+electrons+by+degree%2C+code+by+obsession;%3E+open+source+%7C+AI+%7C+systems" alt="Typing SVG" />
-  </a>
+  <img src="https://cdn.shopify.com/s/files/1/0578/3696/1997/t/9/assets/lofiboy.gif?v=103461765217895835051680702279" alt="Lo-fi coder typing at a desk" width="85%" />
 </p>
 
 <p align="center">
-  <img src="./badges.svg" alt="Status: open to opportunities · Focus: software + AI · Base: Kolkata, IN" />
+  <img src="https://api.visitorbadge.io/api/visitors?path=Quantumboy80&amp;labelColor=%231f2327&amp;countColor=%2339FF14&amp;style=flat-square" alt="Visitors" />
 </p>
 
 ```bash
