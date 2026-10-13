@@ -12,21 +12,6 @@
   <img src="https://api.visitorbadge.io/api/visitors?path=Quantumboy80&amp;labelColor=%231f2327&amp;countColor=%2339FF14&amp;style=flat-square" alt="Visitors" />
 </p>
 
-```bash
-sayan@core:~$ whoami
-> Sayan Som — 4th-year EE @ IEM Kolkata
-sayan@core:~$ cat focus.txt
-> software engineering · applied AI · deployed products
-sayan@core:~$ cat achievements.txt
-> 🏆 Best Paper Award — BIOSPECTRUM 2025
-> 🤖 Anthropic certified: Claude Code · MCP
-sayan@core:~$ status
-> building something new... ▌
-```
-
-<p align="center">
-  <img src="https://api.visitorbadge.io/api/visitors?path=Quantumboy80&amp;labelColor=%231f2327&amp;countColor=%2339FF14&amp;style=flat-square" alt="Visitors" />
-</p>
 ---
 
 ### 🔮 About Me
