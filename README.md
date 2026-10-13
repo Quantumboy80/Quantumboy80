@@ -1,10 +1,6 @@
 # 🌌 Hi there, I'm Sayan Som! <img src="https://media.giphy.com/media/hvRJCLFzcasr6/giphy.gif" width="30px">
 
 <p align="center">
-  <img src="./header-text.svg" alt="Sayan Som, electrical engineer turned software and AI builder" width="100%" />
-</p>
-
-<p align="center">
   <img src="https://cdn.shopify.com/s/files/1/0578/3696/1997/t/9/assets/lofiboy.gif?v=103461765217895835051680702279" alt="Lo-fi coder typing at a desk" width="85%" />
 </p>
 
